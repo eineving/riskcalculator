@@ -12,11 +12,11 @@ public class TreeOutcome {
     public TreeOutcome(int attackers, int defenders) {
         root = new Node(attackers, defenders);
         root.percentage = 1.0;
-        addChildren(root);
+        createChildren(root);
 
     }
 
-    public void addChildren(Node parent) {
+    public void createChildren(Node parent) {
         if (parent.attackers == 0 || parent.defenders == 0) {
             return;
         } else if (parent.attackers > 1 && parent.defenders > 1) { //Three possible outcomes
@@ -35,6 +35,9 @@ public class TreeOutcome {
                 split.addParent(parent, 420.0 / 1296.0);
             }
 
+            createChildren(aWon);
+            createChildren(dWon);
+            createChildren(split);
         } else if (parent.attackers == 1 || parent.defenders == 1) {
             Node aWon = getMatchingNode(parent.attackers, parent.defenders - 1);
             Node dWon = getMatchingNode(parent.attackers - 1, parent.defenders);
@@ -54,6 +57,8 @@ public class TreeOutcome {
                 aWon.addParent(parent, 55.0 / 216.0);
                 dWon.addParent(parent, 161.0 / 216.0);
             }
+            createChildren(aWon);
+            createChildren(dWon);
         }
     }
 
