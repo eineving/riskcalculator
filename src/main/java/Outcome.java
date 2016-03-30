@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Daniel on 2016-03-29.
@@ -59,6 +60,15 @@ public class Outcome {
             this.defenders = defenders;
             this.percentage = percentage;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Outcome{" +
+                "array=" + Arrays.toString(array) +
+                ", winningPercentage=" + winningPercentage +
+                ", midPoint=" + midPoint +
+                '}';
     }
 }
 

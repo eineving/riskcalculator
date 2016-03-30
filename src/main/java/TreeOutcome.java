@@ -146,10 +146,10 @@ public class TreeOutcome {
         }
 
         public void calculatePercentage() {
-           /* parents.forEach((parent, edgePercentage) -> {
+            parents.forEach((parent, edgePercentage) -> {
                 percentage += parent.percentage * edgePercentage;
             });
-            */
+
         }
 
         @Override
